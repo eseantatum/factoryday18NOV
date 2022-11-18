@@ -50,6 +50,7 @@ class weatherForecaster:
         print(dict)
         return json.dumps(dict)
         
+        
     def saveToFile(self, filename, json):
         with open(filename, "w") as outfile:
             outfile.write(json)
