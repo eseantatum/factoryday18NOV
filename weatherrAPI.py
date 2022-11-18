@@ -28,18 +28,16 @@ class weatherForecaster:
        return response.json().get("main")
        
     def getHistoricCheat(self, year, month, day):
-        noise = random.randrange(-10,10)
-        #print(noise)
+        noise = random.randrange(-5,5)
         temp = 2 + noise
         dict = {
-        "temp":temp,
-        "feels_like":temp,
-        "temp_min": temp - abs(noise * 2),
-        "temp_max": temp + abs(noise*2),
-        "pressure": 1019,
-        "humidity": 83
+            "temp":temp,
+            "feels_like":temp,
+            "temp_min": temp - abs(noise * 2),
+            "temp_max": temp + abs(noise * 2),
+            "pressure": 1019,
+            "humidity": 83
         }
-        #print(dict)
         return json.dumps(dict)
         
     
@@ -49,8 +47,12 @@ class weatherForecaster:
         for date in dates:
             res = self.getHistoricCheat(date[0],date[1],date[2])
             dict[datetime.datetime(date[0],date[1],date[2], 0, 0).strftime("%Y-%m-%d")] = res
-            
+        print(dict)
         return json.dumps(dict)
+        
+    def saveToFile(self, filename, json):
+        with open(filename, "w") as outfile:
+            outfile.write(json)
     
 
 #forecast = weatherForecaster()
@@ -58,4 +60,5 @@ class weatherForecaster:
 #forecast.getHistoricWeather(2020, 11, 21)
 #forecast.getHistoricCheat(202, 11, 21)
 #dateList = [ [2020,11,21], [2019,11,21], [2018,11,21] ]
-#forecast.aggregate(dateList)
+#r = forecast.aggregate(dateList)
+#forecast.saveToFile("new.json",r)
