@@ -30,7 +30,7 @@ class weatherForecaster:
     def getHistoricCheat(self, year, month, day):
         noise = random.randrange(-10,10)
         #print(noise)
-        temp = 272 + noise
+        temp = 2 + noise
         dict = {
         "temp":temp,
         "feels_like":temp,
@@ -53,9 +53,9 @@ class weatherForecaster:
         return json.dumps(dict)
     
 
-forecast = weatherForecaster()
+#forecast = weatherForecaster()
 #forecast.getCurrentWeather()
 #forecast.getHistoricWeather(2020, 11, 21)
-forecast.getHistoricCheat(202, 11, 21)
-dateList = [ [2020,11,21], [2019,11,21], [2018,11,21] ]
-forecast.aggregate(dateList)
+#forecast.getHistoricCheat(202, 11, 21)
+#dateList = [ [2020,11,21], [2019,11,21], [2018,11,21] ]
+#forecast.aggregate(dateList)
