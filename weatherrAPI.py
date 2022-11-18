@@ -33,8 +33,8 @@ class weatherForecaster:
         dict = {
             "temp":temp,
             "feels_like":temp,
-            "temp_min": temp - abs(noise * 2),
-            "temp_max": temp + abs(noise * 2),
+            "temp_min": temp - abs(noise * random.uniform(1.1, 1.9)),
+            "temp_max": temp + abs(noise * random.uniform(1.5, 1.9)),
             "pressure": 1019,
             "humidity": 83
         }
@@ -62,3 +62,4 @@ class weatherForecaster:
 #dateList = [ [2020,11,21], [2019,11,21], [2018,11,21] ]
 #r = forecast.aggregate(dateList)
 #forecast.saveToFile("new.json",r)
+    
